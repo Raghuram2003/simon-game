@@ -1,7 +1,7 @@
 var buttonColors=["red","blue","green","yellow"];
 var gamePattern=[];
 var userClickedPattern=[];
-var count=0;
+var started=false;
 var level=0;
 function nextSequence(){
     var randomNumber=Math.floor(Math.random()*4);
@@ -38,10 +38,10 @@ function animatePress(currentColor){
 }
 
 $(document).keypress(function(){
-    if (count==0){
+    if (!started){
         nextSequence();
     }
-    count++;
+    started=true;
 });
 
 function checkAnswer(currenLevel){
@@ -69,6 +69,6 @@ function startOver(){
     level=0;
     gamePattern=[];
     userClickedPattern=[];
-    count=0;
+    started=false;
 
 }
