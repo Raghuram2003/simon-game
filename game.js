@@ -38,13 +38,13 @@ function animatePress(currentColor){
 }
 
 $(document).keypress(function() {
-  if (!started) {
+  if (count==0) {
     $("#level-title").text("Level " + level);
     setTimeout(function(){
       nextSequence();
     },500);
     
-    started = true;
+    count++;
   }
 });
 
