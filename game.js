@@ -37,11 +37,15 @@ function animatePress(currentColor){
       }, 50);
 }
 
-$(document).keypress(function(){
-    if (count==0){
-        nextSequence();
-    }
-    count++;
+$(document).keypress(function() {
+  if (!started) {
+    $("#level-title").text("Level " + level);
+    setTimeout(function(){
+      nextSequence();
+    },500);
+    
+    started = true;
+  }
 });
 
 function checkAnswer(currenLevel){
