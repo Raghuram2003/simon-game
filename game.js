@@ -38,10 +38,13 @@ function animatePress(currentColor){
 }
 
 $(document).keypress(function(){
-    if (!started){
-        nextSequence();
-    }
-    started=true;
+    setTimeout(function(){
+        if (!started){
+            nextSequence();
+        }
+        started=true;
+    },500);
+   
 });
 
 function checkAnswer(currenLevel){
@@ -62,6 +65,9 @@ function checkAnswer(currenLevel){
         },200);
         $("#level-title").text("Game Over, Press Any Key to Restart");
         startOver();
+        $(".restart").text("RESTART");
+        $(".restart").css("display","inline");
+
     }
 }
 
@@ -72,3 +78,13 @@ function startOver(){
     started=false;
 
 }
+
+$(".restart").click(function(){
+    setTimeout(function(){
+        if (!started){
+            nextSequence();
+        }
+        started=true;
+    },500);
+    $(".restart").css("display","none");}
+)
